@@ -1,3 +1,3 @@
 <script type="text/javascript">
-window.location = 'http://homepage.com';
+window.location = "<?php echo rest_theme_url_redirect(); ?>"
 </script>
