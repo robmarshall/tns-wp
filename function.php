@@ -1,10 +1,9 @@
 <?php
 
 /**
- * Get all files from the inc folder and include them
+ * Functional theme includes and global constants/variables.
  */
-
-foreach( glob('inc/*.php') as $inc )
-{
-    include($inc);
-}
+require ('inc/config.php');
+require ('inc/admin_cleanup.php');
+require ('inc/theme_supports.php');
+require ('inc/wp_graph_ql.php');
