@@ -1,10 +1,28 @@
-<h1>WordPress REST API Theme</h1>
+# WordPress REST API Theme
 
-<p>This theme is to be used for headless WordPress websites.</p>
+This theme is to be used for headless WordPress websites.
 
-<p>It removes the frontend completely and redirects any non-API calls to the correct URL</p>
+It removes the frontend completely and redirects any non-API calls to the correct URL
 
-<h2>Config</h2>
-<p>To setup the theme, navigate to the inc/config.php file and update the appropriate functions</p>
+## Config
+To setup the theme, navigate to the inc/config.php file and update the appropriate functions
 
-<p>This theme will slowly evolve, as the Gatsby theme improves: <a href="https://github.com/justlikethisdesign/gatsby-tns">https://github.com/justlikethisdesign/gatsby-tns</a>
+## Plugins
+As well as this theme, the WordPress install will need the following plugins installing.
+
+- https://github.com/wp-graphql/wp-graphql
+- https://github.com/wp-graphql/wp-graphiql - helpful for checking queries
+- https://github.com/yoast/wordpress-seo
+- https://github.com/ashhitch/wp-graphql-yoast-seo
+- https://github.com/lukethacoder/wp-webhook-netlify-deploy
+
+### Expanding Theme
+
+To have more functionality, also add these plugins
+
+- https://www.advancedcustomfields.com/pro
+- https://github.com/wp-graphql/wp-graphql-acf
+- https://github.com/Yoast/yoast-acf-analysis
+
+## Development
+This theme will slowly evolve, as the Gatsby theme improves: https://github.com/robmarshall/tns-gatsby
