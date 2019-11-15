@@ -5,7 +5,7 @@ This theme is to be used for headless WordPress websites.
 It removes the frontend completely and redirects any non-API calls to the correct URL
 
 ## Config
-To setup the theme, navigate to the inc/config.php file and update the appropriate functions
+To setup the theme, navigate to the inc/config.php file and update the rest_theme_url_redirect function with the Gatsby URL.
 
 ## Plugins
 As well as this theme, the WordPress install will need the following plugins installing.
