@@ -9,12 +9,23 @@
  */
 function wp_rest_theme_setup() {
 
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
+	/**
+	 * Add support for WordPress 3.0's custom menus
+	 * Register area for custom menu
 	 *
-	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+	 * See: https://codex.wordpress.org/Function_Reference/register_nav_menus
 	 */
-	add_theme_support( 'post-thumbnails' );
+
+	 register_nav_menu( 'header-menu', __( 'Header Menu', theme_text_domain() ) );
+	 register_nav_menu( 'social-menu', __( 'Social Menu', theme_text_domain() ) );
+
+
+	if ( function_exists( 'add_theme_support' ) ) {
+
+			// Allow thumbnails
+			add_theme_support( 'post-thumbnails' );
+
+	}
 
 }
 add_action( 'after_setup_theme', 'wp_rest_theme_setup' );
