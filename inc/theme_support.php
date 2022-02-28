@@ -29,3 +29,29 @@ function wp_rest_theme_setup() {
 
 }
 add_action( 'after_setup_theme', 'wp_rest_theme_setup' );
+
+
+add_filter( 'the_content', 'myprefix_modify_outbound_links' );
+add_filter( 'acf_the_content', 'myprefix_modify_outbound_links' );
+
+function myprefix_modify_outbound_links( $content ) {
+
+    if($content){
+
+        $doc = new DOMDocument('5.0', 'utf-8');
+
+        $doc->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'utf-8'));
+
+        //Loop through each <a> tag in the dom and change the href property
+        foreach($doc->getElementsByTagName('a') as $anchor) {
+            $link = $anchor->getAttribute('href');
+            $link .= (parse_url($link, PHP_URL_QUERY) ? '&' : '?') . rest_theme_url_redirect();
+            $anchor->setAttribute('href', $link);
+        }
+
+        return preg_replace('~<(?:!DOCTYPE|/?(?:html|body))[^>]*>\s*~i', '', $doc->saveHTML($doc->documentElement));
+
+    }
+
+    return $content;
+}
