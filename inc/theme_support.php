@@ -45,8 +45,10 @@ function myprefix_modify_outbound_links( $content ) {
         //Loop through each <a> tag in the dom and change the href property
         foreach($doc->getElementsByTagName('a') as $anchor) {
             $link = $anchor->getAttribute('href');
-            $link .= (parse_url($link, PHP_URL_QUERY) ? '&' : '?') . rest_theme_url_redirect();
-            $anchor->setAttribute('href', $link);
+						if(!str_contains($link,rest_theme_url_redirect())){
+            		$link .= (parse_url($link, PHP_URL_QUERY) ? '&' : '?') . rest_theme_url_redirect();
+            		$anchor->setAttribute('href', $link);
+						}
         }
 
         return preg_replace('~<(?:!DOCTYPE|/?(?:html|body))[^>]*>\s*~i', '', $doc->saveHTML($doc->documentElement));
